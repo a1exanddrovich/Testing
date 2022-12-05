@@ -1,6 +1,6 @@
 package com.epam.ld.module2.testing.template;
 
-import com.epam.ld.module2.testing.Client;
+import com.epam.ld.module2.testing.entity.Client;
 
 /**
  * The type Template engine.
@@ -16,4 +16,5 @@ public class TemplateEngine {
     public String generateMessage(Template template, Client client) {
         return null;
     }
+
 }
