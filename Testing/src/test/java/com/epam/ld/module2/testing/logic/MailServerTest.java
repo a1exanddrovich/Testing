@@ -20,8 +20,7 @@ class MailServerTest {
         System.setOut(new PrintStream(outContent));
         String date = new Date(System.currentTimeMillis()).toString();
         sut.send("Alex322", "Hello, how are u?");
-//        String str = "Message: Hello, how are u?\nWas sent to: Alex322\nWas sent at: " + date + "\n".replaceAll("\r", "");
-        assertThat(outContent.toString(), is("Message: Hello, how are u?\nWas sent to: Alex322\nWas sent at: " + date + "\n"));
+        assertThat(outContent.toString(), is("Message: Hello, how are u?\nWas sent to: Alex322\nWas sent at: " + date + "\r\n"));
     }
 
 
