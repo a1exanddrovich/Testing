@@ -8,6 +8,7 @@ import com.epam.ld.module2.testing.io.FileDataReader;
 import com.epam.ld.module2.testing.logic.MailServer;
 import com.epam.ld.module2.testing.logic.Messenger;
 import com.epam.ld.module2.testing.template.TemplateEngine;
+import com.epam.ld.module2.testing.utils.DataParser;
 
 @CommandLine.Command(
         name = "messenger",
@@ -30,7 +31,8 @@ public class CommandLineInterface implements Runnable {
         TemplateEngine templateEngine = new TemplateEngine();
         MailServer mailServer = new MailServer();
         Messenger messenger = new Messenger(mailServer, templateEngine);
-        Facade facade = new Facade(fileDataReader, fileDataPublisher, templateEngine, messenger, mailServer);
+        DataParser dataParser = new DataParser();
+        Facade facade = new Facade(fileDataReader, fileDataPublisher, dataParser, messenger);
         facade.execute(fileModeOn, inputTemplate, outputFolder);
     }
 

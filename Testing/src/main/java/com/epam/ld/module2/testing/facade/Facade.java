@@ -4,18 +4,16 @@ import lombok.AllArgsConstructor;
 
 import com.epam.ld.module2.testing.io.FileDataPublisher;
 import com.epam.ld.module2.testing.io.FileDataReader;
-import com.epam.ld.module2.testing.logic.MailServer;
 import com.epam.ld.module2.testing.logic.Messenger;
-import com.epam.ld.module2.testing.template.TemplateEngine;
+import com.epam.ld.module2.testing.utils.DataParser;
 
 @AllArgsConstructor
 public class Facade {
 
     private final FileDataReader dataReader;
     private final FileDataPublisher dataPublisher;
-    private final TemplateEngine templateEngine;
+    private final DataParser dataParser;
     private final Messenger messenger;
-    private final MailServer mailServer;
 
     public void execute(boolean fileModeOn, String inputTemplateFile, String outputFolder) {
         if (fileModeOn) {
