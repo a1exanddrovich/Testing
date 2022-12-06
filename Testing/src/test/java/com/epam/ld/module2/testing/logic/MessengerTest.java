@@ -22,7 +22,7 @@ import com.epam.ld.module2.testing.extension.TestReporterPostProcessorExtension;
 import com.epam.ld.module2.testing.template.Template;
 import com.epam.ld.module2.testing.template.TemplateEngine;
 
-@ExtendWith(TestReporterPostProcessorExtension.class)
+//@ExtendWith(TestReporterPostProcessorExtension.class)
 class MessengerTest {
 
     @Mock

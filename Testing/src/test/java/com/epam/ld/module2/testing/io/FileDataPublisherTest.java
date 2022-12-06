@@ -20,7 +20,7 @@ import com.epam.ld.module2.testing.extension.TestReporterPostProcessorExtension;
 import lombok.SneakyThrows;
 
 @Tag("io")
-@ExtendWith(TestReporterPostProcessorExtension.class)
+//@ExtendWith(TestReporterPostProcessorExtension.class)
 class FileDataPublisherTest {
 
     private final FileDataPublisher sut = new FileDataPublisher();

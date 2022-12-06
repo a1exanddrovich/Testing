@@ -44,7 +44,7 @@ class TemplateEngineTest {
                 Arguments.of("Template 2 has SubstitutedValue1 and #{tag}. Sent to Address2", new Template("Template 2 has #{valueSub} and #{valueSub2}",
                         Map.of("valueSub", "SubstitutedValue1", "valueSub2", "#{tag}")), new Client("Address2")),
                 Arguments.of("Template 1 has SubstitutedValue. Sent to Address3", new Template("Template 1 has #{valueSub}",
-                        Map.of("valueSub", "SubstitutedValue1", "valueSub2", "WillNotBePresent")), new Client("Address3")));
+                        Map.of("valueSub", "SubstitutedValue", "valueSub2", "WillNotBePresent")), new Client("Address3")));
     }
 
 }

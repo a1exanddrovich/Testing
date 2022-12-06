@@ -1,11 +1,13 @@
 package com.epam.ld.module2.testing.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 /**
  * The type Client.
  */
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Client {
     private String addresses;
 
