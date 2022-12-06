@@ -17,7 +17,7 @@ class FileDataReaderTest {
     private final FileDataReader sut = new FileDataReader();
 
     @Test
-//    @EnabledOnOs(value = OS.WINDOWS)
+    @EnabledOnOs(value = OS.WINDOWS)
     void shouldReadDataFromFile() {
         String filePath = "src/test/resources/test.txt";
         String expected = "Test data\nTest data2\nTest data3";
@@ -28,7 +28,7 @@ class FileDataReaderTest {
     }
 
     @Test
-//    @EnabledOnOs(value = OS.WINDOWS)
+    @EnabledOnOs(value = OS.WINDOWS)
     void shouldThrowRuntimeExceptionWhenNonExistingFileGiven() {
         String nonExistingFilePath = "src/test/resources/invalidPath.txt";
 

@@ -21,11 +21,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.epam.ld.module2.testing.entity.Client;
+import com.epam.ld.module2.testing.extension.TestReporterPostProcessorExtension;
 import com.epam.ld.module2.testing.template.Template;
 import com.epam.ld.module2.testing.template.TemplateEngine;
 
 @ExtendWith(MockitoExtension.class)
-//@ExtendWith(TestReporterPostProcessorExtension.class)
+@ExtendWith(TestReporterPostProcessorExtension.class)
 class MessengerTest {
 
     @Mock

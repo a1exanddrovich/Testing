@@ -21,16 +21,19 @@ import com.epam.ld.module2.testing.io.FileDataPublisher;
 import com.epam.ld.module2.testing.io.FileDataReader;
 import com.epam.ld.module2.testing.logic.Messenger;
 import com.epam.ld.module2.testing.template.Template;
+import com.epam.ld.module2.testing.template.TemplateEngine;
 import com.epam.ld.module2.testing.utils.DataParser;
 
 @Tag("facade")
 @ExtendWith(MockitoExtension.class)
 class FacadeTest {
 
-    @Mock
-    private FileDataReader dataReader;
     @Spy
     private DataParser dataParser;
+    @Mock
+    private FileDataReader dataReader;
+    @Mock
+    private TemplateEngine templateEngine;
     @Mock
     private FileDataPublisher dataPublisher;
     @Mock
@@ -39,7 +42,7 @@ class FacadeTest {
     private Facade sut;
 
     @Test
-    @DisabledIf("runFacadeTests")
+    @DisabledIf("doNotRunFacadeTests")
     void shouldExecuteInFileMode() {
         String filePath = "src/test/resources/testFacade.txt";
         String outputFilePath = "src/test/resources/";
@@ -49,11 +52,9 @@ class FacadeTest {
 
         when(dataReader.readData(filePath)).thenReturn(rawData);
 
-        Template template = dataParser.parseData(Template.class, rawData);
-        Client client = dataParser.parseData(Client.class, rawData);
-
-        doNothing().when(messenger).sendMessage(client, template);
+        doNothing().when(messenger).sendMessage(any(Client.class), any(Template.class));
         doNothing().when(dataPublisher).publishData(anyString(), anyString());
+        when(templateEngine.generateMessage(any(Template.class), any(Client.class))).thenReturn("");
 
         sut.execute(true, filePath, outputFilePath);
 
@@ -63,8 +64,8 @@ class FacadeTest {
         verify(messenger, times(1)).sendMessage(any(Client.class), any(Template.class));
     }
 
-    private boolean runFacadeTests() {
-        return true;
+    private boolean doNotRunFacadeTests() {
+        return false;
     }
 
 }

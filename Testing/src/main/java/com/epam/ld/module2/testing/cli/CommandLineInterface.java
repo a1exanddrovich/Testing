@@ -22,8 +22,8 @@ public class CommandLineInterface implements Runnable {
     @CommandLine.Option(names = "-inputTemplate")
     private String inputTemplate;
 
-    @CommandLine.Option(names = "outputFolder")
-    private String outputFolder;
+    @CommandLine.Option(names = "-outputFile")
+    private String outputFile;
 
     public void run() {
         FileDataReader fileDataReader = new FileDataReader();
@@ -32,8 +32,8 @@ public class CommandLineInterface implements Runnable {
         MailServer mailServer = new MailServer();
         Messenger messenger = new Messenger(mailServer, templateEngine);
         DataParser dataParser = new DataParser();
-        Facade facade = new Facade(fileDataReader, fileDataPublisher, dataParser, messenger);
-        facade.execute(fileModeOn, inputTemplate, outputFolder);
+        Facade facade = new Facade(fileDataReader, fileDataPublisher, dataParser, messenger, templateEngine);
+        facade.execute(fileModeOn, inputTemplate, outputFile);
     }
 
 }
