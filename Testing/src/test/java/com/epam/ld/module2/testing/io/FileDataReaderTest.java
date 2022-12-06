@@ -20,7 +20,7 @@ class FileDataReaderTest {
 //    @EnabledOnOs(value = OS.WINDOWS)
     void shouldReadDataFromFile() {
         String filePath = "src/test/resources/test.txt";
-        String expected = "Test data";
+        String expected = "Test data\nTest data2\nTest data3";
 
         String actual = sut.readData(filePath);
 
